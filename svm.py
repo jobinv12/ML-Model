@@ -7,16 +7,17 @@ from sklearn.metrics import classification_report, confusion_matrix
 import streamlit as st
 import pickle
 
+train = pd.read_csv('TrainDataForMotionbtw0-4.csv)
 
 #feature and target
-X = full_data.drop('Label',axis=1)
-y = full_data['Label']
+X = train.drop('Label',axis=1)
+y = train['Label']
 
 # train test split
 x_train, y_train, x_test, y_test = train_test_split(X,y,  test_size=0.3, random_state=42)
 # Sklearn SVM
 
-def svm_model(x_train,y_train,x_test,y_test):
+def svm_model():
 
     grid_params = {'C':[0.1,1,10,100,1000],'gamma':[1,0.1,0.01,0.001,0.0001],'kernel':['rbf']}
 
