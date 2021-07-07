@@ -9,20 +9,25 @@ from sklearn.metrics import classification_report, confusion_matrix
 import streamlit as st
 
 
-# Neural Net
+train = pd.read_csv('TrainDataForMotionbtw0-4.csv')
+test = pd.read_csv('TestDataForMotionbtw0-4.csv')
+
+#feature and target
+X = train.drop('Label',axis=1)
+y = train['Label']
+
+#
 
 # Enconding Label column
+train['Label'] = 
 
-le = LabelEncoder()
-
-df['Label'] = le.fit_transform(df['Label'])
+final_test = test.drop('Label',axis=1)
 
 # train test split
+x_train, y_train, x_test, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-X = df.drop('Label',axis=1).values
-y = df['Label'].values
+# Neural Net
 
-x_train,y_train,x_test,y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 # scaling 
 
