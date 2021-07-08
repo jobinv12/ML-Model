@@ -10,24 +10,35 @@ import pickle
 train = pd.read_csv('TrainDataForMotionbtw0-4.csv')
 test = pd.read_csv('TestDataForMotionbtw0-4.csv')
 
+st.write(train.info())
+
+N = pd.Series([1,1,1])
+
 #matrix multiply all columns with 1
-# train['Sensor0'] = np.dot(train['Sensor0'],[1]).reshape(3,1)
-# # train['Sensor1'] = np.dot(train['Sensor1'],[1])
-# # train['Sensor2'] = np.dot(train['Sensor2'],[1])
-# # train['Sensor3'] = np.dot(train['Sensor3'],[1])
-# # train['Sensor4'] = np.dot(train['Sensor4'],[1])
-# # train['Sensor5'] = np.dot(train['Sensor5'],[1])
-# # train['Sensor6'] = np.dot(train['Sensor6'],[1])
-# # train['Sensor7'] = np.dot(train['Sensor7'],[1])
+# train['Sensor0'].dot(N)
+# train['Sensor1'] = np.dot(train['Sensor1'],[1,1,1])
+# train['Sensor2'] = np.dot(train['Sensor2'],[1,1,1])
+# train['Sensor3'] = np.dot(train['Sensor3'],[1,1,1])
+# train['Sensor4'] = np.dot(train['Sensor4'],[1,1,1])
+# train['Sensor5'] = np.dot(train['Sensor5'],[1,1,1])
+# train['Sensor6'] = np.dot(train['Sensor6'],[1,1,1])
+# train['Sensor7'] = np.dot(train['Sensor7'],[1,1,1])
 
-column_names = ['Sensor0','Sensor1','Sensor2','Sensor3','Sensor4','Sensor5','Sensor6','Sensor7']
+# st.write(train['Sensor0'][0].dot([1,1,1]))
+
+# column_names = ['Sensor0','Sensor1','Sensor2','Sensor3','Sensor4','Sensor5','Sensor6','Sensor7']
 
 
-for i in range(0,7):
-    train[column_names[i]] = np.dot(train[column_names[i]],[1])
-    train[column_names[i]].reshape(1,1)
+# for i in range(0,7):
+#     train.loc[i] = np.dot(train[column_names[i]],[1,1,1])
 
-st.write(train.head())
+sensor0 = train['Sensor0'].tolist()
+
+for data in sensor0:
+    d = np.dot(data,[1,1,1])
+st.write(d)
+
+st.write(type(train['Sensor0']))
 
 #feature and target
 X = train.drop('Label',axis=1)
@@ -46,7 +57,7 @@ train['Label'] = le.fit_transform(train['Label'])
 final_test = test.drop('Label',axis=1)
 
 # train test split
-x_train, y_train, x_test, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+# x_train, y_train, x_test, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 # SVM
 
