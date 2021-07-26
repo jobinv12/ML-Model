@@ -13,7 +13,7 @@ svm_model_filename = 'svm_model.sav'
 # target values
 class_name = ["Position_0","Position_1","Position_2","Position_3","Position_4"]
  
-st.write("select values for each sensor to predict the position")
+st.markdown("select values for each sensor and load model to predict the position")
 col1,col2 = st.beta_columns(2)
 col3,col4 = st.beta_columns(2)
 col5,col6 = st.beta_columns(2)
