@@ -72,7 +72,7 @@ parso==0.8.2
 pep517==0.10.0
 pexpect==4.8.0
 pickleshare==0.7.5
-Pillow==8.3.2
+Pillow==9.0.0
 pip-upgrader==1.4.15
 plotly==5.1.0
 prometheus-client==0.11.0
